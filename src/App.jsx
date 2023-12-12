@@ -7,7 +7,7 @@ import LoginPage from './components/login-page/login-page';
 import RegisterPage from './components/register/register';
 import { UserContextProvider } from './user-context';
 
-axios.defaults.baseURL = 'http://localhost:4000';
+axios.defaults.baseURL = 'http://127.0.0.1:4000';
 
 function App() {
   return (

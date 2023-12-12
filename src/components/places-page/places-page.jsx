@@ -1,5 +1,6 @@
+import axios from 'axios';
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { Perks } from '../perks/perks';
 import { PhotosUploader } from '../photos-uploader/photos-uploader';
 
@@ -12,9 +13,10 @@ export function PlacesPage() {
   const [description, setDescription] = useState('');
   const [perks, setPerks] = useState([]);
   const [extraInfo, setExtraInfo] = useState('');
-  const [checkinTime, setCheckIn] = useState('');
+  const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [maxGuests, setMaxGuests] = useState(1);
+  const [redirect, setRedirect] = useState('');
 
   function inputHeader(text) {
     return <h2 className="text-2xl mt-4">{text}</h2>;
@@ -31,6 +33,27 @@ export function PlacesPage() {
         {inputDescription(description)}
       </>
     );
+  }
+
+  async function addNewPlace(ev) {
+    ev.preventDefault();
+
+    await axios.post('/places', {
+      title,
+      address,
+      addedPhotos,
+      description,
+      perks,
+      extraInfo,
+      checkIn,
+      checkOut,
+      maxGuests,
+    });
+    setRedirect('/account/places');
+  }
+
+  if (redirect) {
+    return <Navigate to={redirect} />;
   }
 
   return (
@@ -61,7 +84,7 @@ export function PlacesPage() {
       )}
       {action === 'new' && (
         <div>
-          <form>
+          <form onSubmit={addNewPlace}>
             {preInput('Title')}
             <input
               value={title}
@@ -104,7 +127,7 @@ export function PlacesPage() {
               <div>
                 <h3 className="mt-2 -mb-1">Check in time</h3>
                 <input
-                  value={checkinTime}
+                  value={checkIn}
                   onChange={(ev) => setCheckIn(ev.target.value)}
                   type="text"
                   placeholder="10:00"
