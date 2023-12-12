@@ -16,18 +16,33 @@ export function PlacesPage() {
   const [checkOut, setCheckOut] = useState('');
   const [maxGuests, setMaxGuests] = useState(1);
 
+  async function addPhotoByLink(ev) {
+    ev.preventDefault();
+    const { data: filename } = await axios.post('/upload-by-link', {
+      link: photoLink,
+    });
+    setAddedPhotos((prev) => {
+      return [...prev, filename];
+    });
+    setPhotoLink('');
+  }
+
   function uploadPhoto(ev) {
     const files = ev.target.files;
     const data = new FormData();
-    data.set('photos', files);
+
+    for (let i = 0; i < files.length; i++) {
+      data.append('photos', files[i]);
+    }
+
     axios
       .post('/upload', data, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((response) => {
-        const { data: filename } = response;
+        const { data: filenames } = response;
         setAddedPhotos((prev) => {
-          return [...prev, filename];
+          return [...prev, ...filenames];
         });
       });
   }
@@ -47,17 +62,6 @@ export function PlacesPage() {
         {inputDescription(description)}
       </>
     );
-  }
-
-  async function addPhotoByLink(ev) {
-    ev.preventDefault();
-    const { data: filename } = await axios.post('/upload-by-link', {
-      link: photoLink,
-    });
-    setAddedPhotos((prev) => {
-      return [...prev, filename];
-    });
-    setPhotoLink('');
   }
 
   return (
@@ -125,16 +129,21 @@ export function PlacesPage() {
               {addedPhotos.length > 0 &&
                 addedPhotos.map((link, index) => {
                   return (
-                    <div key={index}>
+                    <div className="h-32 flex" key={index}>
                       <img
-                        className="rounded-2xl"
+                        className="w-full object-cover position-center rounded-2xl"
                         src={'http://localhost:4000/uploads/' + link}
                       />
                     </div>
                   );
                 })}
-              <label className="cursor-pointer flex items-center justify-center border bg-transparent rounded-2xl p-2 text-2xl text-gray-600">
-                <input type="file" className="hidden" onChange={uploadPhoto} />
+              <label className="h-32 cursor-pointer flex items-center justify-center border bg-transparent rounded-2xl p-2 text-2xl text-gray-600">
+                <input
+                  type="file"
+                  multiple
+                  className="hidden"
+                  onChange={uploadPhoto}
+                />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

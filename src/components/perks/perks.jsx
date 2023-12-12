@@ -1,10 +1,19 @@
 /* eslint-disable react/prop-types */
 
 export function Perks({ selected, onChange }) {
+  function handleCbClick(ev) {
+    const { checked, name } = ev.target;
+    if (checked) {
+      onChange([...selected, name]);
+    } else {
+      onChange([...selected.filter((selectedNames) => selectedNames !== name)]);
+    }
+  }
+
   return (
     <div className="grid mt-2 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="" id="" />
+        <input onChange={handleCbClick} name="wifi" type="checkbox" id="" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -22,8 +31,9 @@ export function Perks({ selected, onChange }) {
 
         <span>Wifi</span>
       </label>
+
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="" id="" />
+        <input onChange={handleCbClick} type="checkbox" name="parking" id="" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -41,8 +51,9 @@ export function Perks({ selected, onChange }) {
 
         <span>Free Parking</span>
       </label>
+
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="" id="" />
+        <input onChange={handleCbClick} type="checkbox" name="tv" id="" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -60,8 +71,9 @@ export function Perks({ selected, onChange }) {
 
         <span>TV</span>
       </label>
+
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="" id="" />
+        <input onChange={handleCbClick} type="checkbox" name="pet" id="" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -79,8 +91,14 @@ export function Perks({ selected, onChange }) {
 
         <span>Pets</span>
       </label>
+
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="" id="" />
+        <input
+          onChange={handleCbClick}
+          type="checkbox"
+          name="privateentrance"
+          id=""
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
