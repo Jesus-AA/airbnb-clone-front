@@ -11,6 +11,7 @@ export function PlacesPage() {
       setPlaces(data);
     });
   }, []);
+
   return (
     <div>
       <AccountNavigation />
@@ -37,9 +38,23 @@ export function PlacesPage() {
           Add new place
         </Link>
       </div>
-      <div>
+      <div className="mt-4">
         {places.length > 0 &&
-          places.map((place, index) => <div key={index}>{place.title}</div>)}
+          places.map((place, index) => (
+            <Link
+              to={'/account/places/' + place._id}
+              className="flex cursor-pointer gap-4 bg-gray-200 p-4 rounded-2xl"
+              key={index}
+            >
+              <div className="bg-gray-100 w-32 h-32 grow shrink-0">
+                {place.photos.length > 0 && <img src={place.photos[0]} />}
+              </div>
+              <div className="grow-0 shrink">
+                <h2 className="text-xl">{place.title}</h2>
+                <p className="text-sm mt-2">{place.description}</p>
+              </div>
+            </Link>
+          ))}
       </div>
     </div>
   );
