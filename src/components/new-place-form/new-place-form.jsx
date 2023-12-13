@@ -53,10 +53,9 @@ export function NewPlaceForm() {
     );
   }
 
-  async function addNewPlace(ev) {
+  async function savePlace(ev) {
     ev.preventDefault();
-
-    await axios.post('/places', {
+    const placeData = {
       title,
       address,
       addedPhotos,
@@ -66,9 +65,17 @@ export function NewPlaceForm() {
       checkIn,
       checkOut,
       maxGuests,
-    });
-
-    setRedirect(true);
+    };
+    if (id) {
+      await axios.put('/places', {
+        id,
+        ...placeData,
+      });
+      setRedirect(true);
+    } else {
+      await axios.post('/places', placeData);
+      setRedirect(true);
+    }
   }
 
   if (redirect) {
@@ -78,7 +85,7 @@ export function NewPlaceForm() {
   return (
     <div>
       <AccountNavigation />
-      <form onSubmit={addNewPlace}>
+      <form onSubmit={savePlace}>
         {preInput('Title')}
         <input
           value={title}
