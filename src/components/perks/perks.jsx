@@ -13,7 +13,13 @@ export function Perks({ selected, onChange }) {
   return (
     <div className="grid mt-2 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input onChange={handleCbClick} name="wifi" type="checkbox" id="" />
+        <input
+          onChange={handleCbClick}
+          checked={selected.includes('wifi')}
+          name="wifi"
+          type="checkbox"
+          id=""
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -33,7 +39,13 @@ export function Perks({ selected, onChange }) {
       </label>
 
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input onChange={handleCbClick} type="checkbox" name="parking" id="" />
+        <input
+          onChange={handleCbClick}
+          checked={selected.includes('parking')}
+          type="checkbox"
+          name="parking"
+          id=""
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -53,7 +65,13 @@ export function Perks({ selected, onChange }) {
       </label>
 
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input onChange={handleCbClick} type="checkbox" name="tv" id="" />
+        <input
+          onChange={handleCbClick}
+          type="checkbox"
+          checked={selected.includes('tv')}
+          name="tv"
+          id=""
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -73,7 +91,13 @@ export function Perks({ selected, onChange }) {
       </label>
 
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input onChange={handleCbClick} type="checkbox" name="pet" id="" />
+        <input
+          onChange={handleCbClick}
+          checked={selected.includes('pet')}
+          type="checkbox"
+          name="pet"
+          id=""
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -97,6 +121,7 @@ export function Perks({ selected, onChange }) {
           onChange={handleCbClick}
           type="checkbox"
           name="privateentrance"
+          checked={selected.includes('privateentrance')}
           id=""
         />
         <svg
