@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
-import AccountPage from './components/account/account-page';
+import ProfilePage from './components/account/account-page';
 import IndexPage from './components/index-page/index-page';
 import Layout from './components/layout/layout';
 import LoginPage from './components/login-page/login-page';
+import { NewPlaceForm } from './components/new-place-form/new-place-form';
+import { PlacesPage } from './components/places-page/places-page';
 import RegisterPage from './components/register/register';
 import { UserContextProvider } from './user-context';
 
@@ -18,8 +20,9 @@ function App() {
           <Route index element={<IndexPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/account/:subpage?" element={<AccountPage />} />
-          <Route path="/account/:subpage/:action" element={<AccountPage />} />
+          <Route path="/account" element={<ProfilePage />} />
+          <Route path="/account/places" element={<PlacesPage />} />
+          <Route path="/account/places/new" element={<NewPlaceForm />} />
         </Route>
       </Routes>
     </UserContextProvider>
