@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { AccountNavigation } from '../account-navigation/account-navigation';
 import { Perks } from '../perks/perks';
 import { PhotosUploader } from '../photos-uploader/photos-uploader';
@@ -14,6 +15,8 @@ export function NewPlaceForm() {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [maxGuests, setMaxGuests] = useState(1);
+
+  const [redirect, setRedirect] = useState(false);
 
   function inputHeader(text) {
     return <h2 className="text-2xl mt-4">{text}</h2>;
@@ -46,6 +49,12 @@ export function NewPlaceForm() {
       checkOut,
       maxGuests,
     });
+
+    setRedirect(true);
+  }
+
+  if (redirect) {
+    return <Navigate to={'/account/places'} />;
   }
 
   return (
