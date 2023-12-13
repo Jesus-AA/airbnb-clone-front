@@ -50,7 +50,7 @@ export function PlacesPage() {
                 {place.photos.length > 0 && (
                   <img
                     className="object-cover"
-                    src={'http://127.0.0.1:4000/uploads/' + place.photos[0]}
+                    src={'http://localhost:4000/uploads/' + place.photos[0]}
                   />
                 )}
               </div>
