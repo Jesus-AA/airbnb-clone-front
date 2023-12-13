@@ -42,11 +42,11 @@ export function PhotosUploader({ addedPhotos, onChange }) {
 
   function selectAsMainPhoto(ev, filename) {
     ev.preventDefault();
-    const addedPhotosWithoutSelected = [
+
+    onChange([
+      filename,
       ...addedPhotos.filter((photos) => photos !== filename),
-    ];
-    const newAddedPhotos = [filename, ...addedPhotosWithoutSelected];
-    onChange(newAddedPhotos);
+    ]);
   }
 
   return (
