@@ -39,9 +39,7 @@ export function PlacesPage() {
       </div>
       <div>
         {places.length > 0 &&
-          places.map((place) => {
-            <div>{place.title}</div>;
-          })}
+          places.map((place, index) => <div key={index}>{place.title}</div>)}
       </div>
     </div>
   );
