@@ -5,6 +5,7 @@ import IndexPage from './components/index-page/index-page';
 import Layout from './components/layout/layout';
 import LoginPage from './components/login-page/login-page';
 import { NewPlaceForm } from './components/new-place-form/new-place-form';
+import { PlacePage } from './components/place-page/place-page';
 import { PlacesPage } from './components/places-page/places-page';
 import RegisterPage from './components/register/register';
 import { UserContextProvider } from './user-context';
@@ -24,7 +25,7 @@ function App() {
           <Route path="/account/places" element={<PlacesPage />} />
           <Route path="/account/places/new" element={<NewPlaceForm />} />
           <Route path="/account/places/:id" element={<NewPlaceForm />} />
-          <Route path="/place/:id" element={<PlacesPage />} />
+          <Route path="/place/:id" element={<PlacePage />} />
         </Route>
       </Routes>
     </UserContextProvider>
