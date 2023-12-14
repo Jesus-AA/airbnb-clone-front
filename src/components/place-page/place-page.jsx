@@ -138,7 +138,7 @@ export function PlacePage() {
         </button>
       </div>
 
-      <div className="mt-8 mb-8 grid gap-8 grid-cols-1 md:grid-cols-[]2fr_1fr">
+      <div className="mt-8 mb-8 grid gap-8 grid-cols-1 md:grid-cols-[2fr_1fr]">
         <div>
           <div className="my-4">
             <h2 className="font-semibold text-2xl">Description</h2>
