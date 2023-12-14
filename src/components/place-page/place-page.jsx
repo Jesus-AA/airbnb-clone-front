@@ -26,7 +26,7 @@ export function PlacePage() {
             <h2 className="text-3xl">Photos of {place.title}</h2>
             <button
               onClick={() => setShowAllPhotos(false)}
-              className="fixed rigth-12 top-8 flex gap-1 py-2 px-4 round-2xl shadow-black bg-white text-black"
+              className="fixed right-12 top-8 flex gap-1 py-2 px-4 rounded-2xl shadow shadow-black bg-white text-black"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
