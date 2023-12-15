@@ -6,11 +6,13 @@ import { PlaceImages } from '../place-images/place-images';
 
 export function BookingsPage() {
   const [bookings, setBookings] = useState([]);
+
   useEffect(() => {
     axios.get('/bookings').then((response) => {
       setBookings(response.data);
     });
   }, []);
+  console.log('Error');
   return (
     <div>
       <AccountNavigation />
