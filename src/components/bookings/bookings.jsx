@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { AccountNavigation } from '../account-navigation/account-navigation';
 import { PlaceImages } from '../place-images/place-images';
 import { BookingDates } from './booking-dates';
+
 export function BookingsPage() {
   const [bookings, setBookings] = useState([]);
 
