@@ -103,7 +103,7 @@ export function BookingWidget({ place }) {
       {checkIn === '' ||
       checkOut === '' ||
       name === '' ||
-      phone === null ? null : (
+      phone === '' ? null : (
         <button type="submit" onClick={bookThisPlace} className="primary mt-4">
           Book this place
           {numberOfNights > 0 && (
