@@ -29,6 +29,14 @@ export function BookingWidget({ place }) {
   }
 
   async function bookThisPlace() {
+    if (
+      checkIn === null ||
+      checkOut === null ||
+      numberOfGuests === null ||
+      name === null ||
+      phone === null
+    )
+      return;
     const response = await axios.post('/bookings', {
       checkIn,
       checkOut,

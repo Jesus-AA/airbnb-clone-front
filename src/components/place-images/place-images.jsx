@@ -4,7 +4,7 @@ export function PlaceImages({ place, index = 0, className = null }) {
     return '';
   }
   if (!className) {
-    className = 'object-cover';
+    className = 'object-cover ';
   }
   return (
     <img
