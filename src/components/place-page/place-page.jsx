@@ -24,7 +24,7 @@ export function PlacePage() {
       <div className="absolute inset-0 bg-black text-white min-h-screen">
         <div className="bg-black p-8 grid gap-4">
           <div>
-            <h2 className="text-3xl">Photos of {place.title}</h2>
+            <h2 className="text-3xl mr-48">Photos of {place.title}</h2>
             <button
               onClick={() => setShowAllPhotos(false)}
               className="fixed right-12 top-8 flex gap-1 py-2 px-4 rounded-2xl shadow shadow-black bg-white text-black"
@@ -93,7 +93,8 @@ export function PlacePage() {
             {place.photos?.[0] && (
               <div>
                 <img
-                  className="aspect-square object-cover"
+                  onClick={() => setShowAllPhotos(true)}
+                  className="cursor-pointer aspect-square object-cover"
                   src={'http://localhost:4000/uploads/' + place.photos[0]}
                 />
               </div>
@@ -102,14 +103,16 @@ export function PlacePage() {
           <div className="grid">
             {place.photos?.[1] && (
               <img
-                className="aspect-square object-cover"
+                onClick={() => setShowAllPhotos(true)}
+                className="cursor-pointer aspect-square object-cover"
                 src={'http://localhost:4000/uploads/' + place.photos[1]}
               />
             )}
             <div className="overflow-hidden">
               {place.photos?.[2] && (
                 <img
-                  className="aspect-square object-cover relative top-2"
+                  onClick={() => setShowAllPhotos(true)}
+                  className="cursor-pointer aspect-square object-cover relative top-2"
                   src={'http://localhost:4000/uploads/' + place.photos[2]}
                 />
               )}
@@ -156,7 +159,7 @@ export function PlacePage() {
         <div>
           <h2 className="font-semibold text-2xl">Extra info:</h2>
         </div>
-        <div className="mb-4 mt-1 text-sm text-gray-700 leading-4">
+        <div className="mb-4 mt-2 text-sm text-gray-700 leading-5">
           {place.extraInfo}
         </div>
       </div>
