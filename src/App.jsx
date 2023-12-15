@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import ProfilePage from './components/account/account-page';
-import { BookingPage } from './components/bookings/bookingpage';
+import { BookingPage } from './components/bookings/booking-page';
 import { BookingsPage } from './components/bookings/bookings';
 import IndexPage from './components/index-page/index-page';
 import Layout from './components/layout/layout';
