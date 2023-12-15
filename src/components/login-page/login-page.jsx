@@ -29,12 +29,14 @@ export default function LoginPage() {
         <h1 className="text-4xl text-center mb-4">Login</h1>
         <form className="max-w-md mx-auto" onSubmit={handleUserLogin}>
           <input
+            required
             type="email"
             placeholder="email@.com"
             value={email}
             onChange={(ev) => setEmail(ev.target.value)}
           />
           <input
+            required
             type="password"
             placeholder="password"
             value={password}

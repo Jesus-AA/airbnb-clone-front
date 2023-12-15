@@ -18,7 +18,7 @@ export default function RegisterPage() {
       });
       alert('Registrations Ok!');
     } catch (error) {
-      alert('Warning');
+      alert('Warning, please enter valid params');
     }
   }
 
