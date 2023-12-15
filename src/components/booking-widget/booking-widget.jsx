@@ -29,21 +29,17 @@ export function BookingWidget({ place }) {
   }
 
   async function bookThisPlace() {
-    if (checkIn === '' || checkOut === '' || name === '' || phone === '') {
-      return;
-    } else {
-      const response = await axios.post('/bookings', {
-        checkIn,
-        checkOut,
-        numberOfGuests,
-        name,
-        phone,
-        place: place._id,
-        price: numberOfNights * place.price,
-      });
-      const bookingId = response.data._id;
-      setRedirect(`/account/bookings/${bookingId}`);
-    }
+    const response = await axios.post('/bookings', {
+      checkIn,
+      checkOut,
+      numberOfGuests,
+      name,
+      phone,
+      place: place._id,
+      price: numberOfNights * place.price,
+    });
+    const bookingId = response.data._id;
+    setRedirect(`/account/bookings/${bookingId}`);
   }
 
   if (redirect) {
@@ -60,6 +56,7 @@ export function BookingWidget({ place }) {
             <input
               type="date"
               value={checkIn}
+              required
               onChange={(ev) => setCheckIn(ev.target.value)}
             />
           </div>
@@ -67,6 +64,7 @@ export function BookingWidget({ place }) {
             <label htmlFor="">Check out:</label>
             <input
               type="date"
+              required
               value={checkOut}
               onChange={(ev) => setCheckOut(ev.target.value)}
             />
@@ -76,6 +74,7 @@ export function BookingWidget({ place }) {
           <div className="py-3 px-4 border-t">
             <label htmlFor="">Number of guests:</label>
             <input
+              required
               type="number"
               value={numberOfGuests}
               onChange={(ev) => setNumberOfGuests(ev.target.value)}
@@ -86,12 +85,14 @@ export function BookingWidget({ place }) {
           <div className="py-3 px-4 border-t">
             <label htmlFor="">Full name:</label>
             <input
+              required
               type="text"
               value={name}
               onChange={(ev) => setName(ev.target.value)}
             />
             <label htmlFor="">Phone number:</label>
             <input
+              required
               type="tel"
               value={phone}
               onChange={(ev) => setPhone(ev.target.value)}
