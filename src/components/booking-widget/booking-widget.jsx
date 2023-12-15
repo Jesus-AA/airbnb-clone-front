@@ -100,11 +100,17 @@ export function BookingWidget({ place }) {
           </div>
         )}
       </div>
-
-      <button type="submit" onClick={bookThisPlace} className="primary mt-4">
-        Book this place
-        {numberOfNights > 0 && <span>for ${numberOfNights * place.price}</span>}
-      </button>
+      {checkIn === '' ||
+      checkOut === '' ||
+      name === '' ||
+      phone === null ? null : (
+        <button type="submit" onClick={bookThisPlace} className="primary mt-4">
+          Book this place
+          {numberOfNights > 0 && (
+            <span>for ${numberOfNights * place.price}</span>
+          )}
+        </button>
+      )}
     </div>
   );
 }
