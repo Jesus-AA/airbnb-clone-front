@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import ProfilePage from './components/account/account-page';
+import { BookingsPage } from './components/bookings/bookings';
 import IndexPage from './components/index-page/index-page';
 import Layout from './components/layout/layout';
 import LoginPage from './components/login-page/login-page';
@@ -26,6 +27,7 @@ function App() {
           <Route path="/account/places/new" element={<NewPlaceForm />} />
           <Route path="/account/places/:id" element={<NewPlaceForm />} />
           <Route path="/place/:id" element={<PlacePage />} />
+          <Route path="/place/:id" element={<BookingsPage />} />
         </Route>
       </Routes>
     </UserContextProvider>
