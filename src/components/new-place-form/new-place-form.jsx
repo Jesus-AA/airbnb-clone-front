@@ -95,6 +95,7 @@ export function NewPlaceForm() {
           onChange={(ev) => setTitle(ev.target.value)}
           type="text"
           placeholder="for example: My lovely house"
+          required
         />
 
         {preInput('Address')}
@@ -103,6 +104,7 @@ export function NewPlaceForm() {
           onChange={(ev) => setAddress(ev.target.value)}
           type="text"
           placeholder="address"
+          required
         />
 
         {preInput('Pictures')}
@@ -112,6 +114,7 @@ export function NewPlaceForm() {
         <textarea
           value={description}
           onChange={(ev) => setDescription(ev.target.value)}
+          required
         />
 
         {preInput('Perks', 'Select your perks')}
@@ -121,6 +124,7 @@ export function NewPlaceForm() {
         <textarea
           value={extraInfo}
           onChange={(ev) => setExtraInfo(ev.target.value)}
+          required
         />
 
         {preInput('Check in and check out')}
@@ -132,6 +136,7 @@ export function NewPlaceForm() {
               onChange={(ev) => setCheckIn(ev.target.value)}
               type="text"
               placeholder="10:00"
+              required
             />
           </div>
 
@@ -142,6 +147,7 @@ export function NewPlaceForm() {
               onChange={(ev) => setCheckOut(ev.target.value)}
               type="text"
               placeholder="15:00"
+              required
             />
           </div>
 
@@ -152,6 +158,7 @@ export function NewPlaceForm() {
               value={maxGuests}
               placeholder="3"
               type="number"
+              required
             />
           </div>
 
@@ -162,6 +169,7 @@ export function NewPlaceForm() {
               value={price}
               placeholder="$100"
               type="number"
+              required
             />
           </div>
         </div>
