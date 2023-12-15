@@ -49,7 +49,7 @@ export function BookingWidget({ place }) {
       </div>
 
       <button className="primary mt-4">
-        Book this place
+        Book this place for{' '}
         {numberOfNights > 0 && <span>${numberOfNights * place.price}</span>}
       </button>
     </div>
