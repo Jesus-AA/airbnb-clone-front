@@ -76,7 +76,7 @@ export function PhotosUploader({ addedPhotos, onChange }) {
               <div className="h-32 flex relative" key={index}>
                 <img
                   className="w-full object-cover position-center rounded-2xl"
-                  src={'http://localhost:4000/uploads/' + link}
+                  src={'https://homehub-node-back.onrender.com/uploads/' + link}
                 />
                 <button
                   onClick={(ev) => removePhoto(ev, link)}

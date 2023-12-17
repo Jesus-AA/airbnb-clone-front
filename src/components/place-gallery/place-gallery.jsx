@@ -33,7 +33,12 @@ export function PlaceGallery({ place }) {
           {place?.photos?.length > 0 &&
             place.photos.map((photo, index) => (
               <div key={index}>
-                <img src={'http://localhost:4000/uploads/' + photo} alt="" />
+                <img
+                  src={
+                    'https://homehub-node-back.onrender.com/uploads/' + photo
+                  }
+                  alt=""
+                />
               </div>
             ))}
         </div>
@@ -50,7 +55,10 @@ export function PlaceGallery({ place }) {
               <img
                 onClick={() => setShowAllPhotos(true)}
                 className="cursor-pointer aspect-square object-cover"
-                src={'http://localhost:4000/uploads/' + place.photos[0]}
+                src={
+                  'https://homehub-node-back.onrender.com/uploads/' +
+                  place.photos[0]
+                }
               />
             </div>
           )}
@@ -60,7 +68,10 @@ export function PlaceGallery({ place }) {
             <img
               onClick={() => setShowAllPhotos(true)}
               className="cursor-pointer aspect-square object-cover"
-              src={'http://localhost:4000/uploads/' + place.photos[1]}
+              src={
+                'https://homehub-node-back.onrender.com/uploads/' +
+                place.photos[1]
+              }
             />
           )}
           <div className="overflow-hidden">
@@ -68,7 +79,10 @@ export function PlaceGallery({ place }) {
               <img
                 onClick={() => setShowAllPhotos(true)}
                 className="cursor-pointer aspect-square object-cover relative top-2"
-                src={'http://localhost:4000/uploads/' + place.photos[2]}
+                src={
+                  'https://homehub-node-back.onrender.com/uploads/' +
+                  place.photos[2]
+                }
               />
             )}
           </div>
