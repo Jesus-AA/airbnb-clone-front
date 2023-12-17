@@ -81,7 +81,7 @@ export default function Header() {
             />
           </svg>
         </div>
-        {!!user && <div>{user.name}</div>}
+        {user ? <div>{user.name}</div> : 'Login'}
       </Link>
     </header>
   );
