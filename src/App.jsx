@@ -12,7 +12,7 @@ import { PlacesPage } from './components/places-page/places-page';
 import RegisterPage from './components/register/register';
 import { UserContextProvider } from './user-context';
 
-axios.defaults.baseURL = 'http://127.0.0.1:4000';
+axios.defaults.baseURL = 'https://homehub-node-backend.onrender.com/';
 axios.defaults.withCredentials = true;
 
 function App() {
