@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AddressLink } from '../address-link/address-link';
 import { PlaceGallery } from '../place-gallery/place-gallery';
+import { StripeButton } from '../stripe-button/stripe-button';
 import { BookingDates } from './booking-dates';
 
 export function BookingPage() {
@@ -32,6 +33,7 @@ export function BookingPage() {
           <BookingDates booking={booking} />
         </div>
         <div className="bg-primary p-6 text-white rounded-2xl">
+          <StripeButton price={booking.price} />
           <div>Total price:</div>
           <div className="text-3xl">${booking.price}</div>
         </div>
