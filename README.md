@@ -1,4 +1,4 @@
-# HomeHub
+# 🏝️🏠HomeHub
 
 HomeHub is a versatile web application that allows users to register, log in, list rental properties, and rent homes or apartments from other users. Inspired by the success of platforms like Airbnb, HomeHub is built using JavaScript, React, and Tailwind CSS to provide a seamless and user-friendly experience. The application also integrates with Stripe for secure and convenient payment processing.
 
